@@ -1,0 +1,129 @@
+@import "_reset", "_mixins";
+
+.Wrapper {
+  width: 100%;
+  max-width: 1440px;
+  margin: auto;
+  .Header {
+    @include flex(row, nowrap, space-between, center);
+    &-h1 {
+      width: 5rem;
+      height: 5rem;
+      margin: 2rem 0;
+    }
+    &_logo {
+    }
+    &-nav {
+    }
+    &-ul {
+      @include flex(row, nowrap, center, center);
+      gap: 2rem;
+    }
+    &-li {
+    }
+    &-a {
+    }
+  }
+  .Main {
+    @include flex(row, wrap, space-between, center);
+    width: 100%;
+    &-left {
+      width: calc(70%);
+      height: 100%;
+    }
+    &-img {
+    }
+    &-titular {
+      @include flex(row, wrap, space-between, center);
+      margin: 2rem 0 0 0;
+    }
+    &-h2 {
+      width: 45%;
+      font-size: 4.5rem;
+      line-height: 1;
+      font-weight: 800;
+      margin: 0 2rem 0 0;
+    }
+    &-paragraph {
+      @include flex(column, nowrap, space-between, flex-start);
+      width: 50%;
+    }
+    &-p-left {
+      font-size: 1.2rem;
+      line-height: 1.7;
+      color: var(--gris-texto);
+      font-weight: 500;
+    }
+    &-btn {
+      background-color: var(--rojo);
+      padding: 1rem 2rem;
+      text-transform: uppercase;
+      color: var(--blanco);
+      letter-spacing: 0.3rem;
+      &:hover {
+        background-color: var(--azul);
+      }
+    }
+    &-rigth {
+      background-color: var(--azul);
+      color: var(--blanco);
+      width: (27%);
+      padding: 1rem 2rem;
+    }
+    &-h3 {
+      margin: 0 0 1.5rem 0;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--naranja);
+    }
+    &-article {
+    }
+    &-new {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 1rem 0 0 0;
+    }
+
+    &-border {
+      border: 0.5px solid var(--gris);
+      margin: 0 0 2rem 0;
+    }
+
+    &-p {
+      padding: 1rem 0 1.5rem 0;
+      color: var(--gris);
+    }
+  }
+  .Cards {
+    @include flex(row, wrap, space-between, center);
+    margin: 5rem 0 0 0;
+    &-card {
+      @include flex(row, nowrap, center, center);
+      width: 25rem;
+    }
+    &-img {
+      width: 8rem;
+      height: 10rem;
+    }
+    &-text {
+      @include flex(column, nowrap, space-between, flex-start);
+      margin: 0 0 0 1rem;
+      height: 100%;
+    }
+    &-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gris);
+    }
+    &-h5 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--azul);
+    }
+    &-p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--gris-texto);
+    }
+  }
+}

@@ -1,0 +1,310 @@
+@charset "UTF-8";
+/*
+
+  Con este reset vamos a resolver:
+    👉 Unificar el uso de Custom Properties
+    👉 Problemas de box-model más generales
+    👉 Problemas con imagenes, vídeos e iconos svg
+    👉 Problemas con tipografías y etiquetas input en formularios
+    👉 Unificar la tipografía de todas las etiquetas de una web
+*/
+/* Aquí definimos las Custom properties */
+:root {
+  --negro: #181818;
+  --blanco: hsl(36, 100%, 99%);
+  --gris: hsl(233, 8%, 79%);
+  --gris-texto: hsl(236, 13%, 42%);
+  --rojo: hsl(5, 85%, 63%);
+  --azul: hsl(240, 100%, 5%);
+  --naranja: hsl(35, 77%, 62%);
+  /* Tipografía */
+  --tipo-principal: "Inter", sans-serif;
+  --tipo-secundaria: Verdana;
+}
+
+/* Las adaptamos al modo oscuro */
+/* Opcional */
+/* Configuramos si un usuario ha activado el modo alto contraste. (WD) */
+/* Opcional */
+/* Desactivamos los animations en el caso de que el usuario haya configurado el modo sin animation */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+/* Reseteamos los margin y paddings de todas las etiquetas */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+
+/* Evitamos problemas con las imagenes */
+img,
+picture,
+video,
+iframe,
+figure {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  /* opcional */
+  object-fit: cover;
+  /* opcional */
+  object-position: center center;
+}
+
+/* Reseteamos los enlaces para funcionar como cajas... */
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* ... excepto los que se encuentran en párrafos */
+p a {
+  display: inline;
+}
+
+/* Quitamos los puntos de los <li> */
+li {
+  list-style-type: none;
+}
+
+/* Configuramos anclas suaves */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Desactivamos estilos por defecto de las principales etiquetas de texto */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+strong,
+blockquote,
+i,
+b,
+u,
+em {
+  font-size: 1em;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Evitamos problemas con los pseudoelementos de quotes */
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+/* Configuramos el texto que seleccionamos */
+::selection {
+  background-color: var(--negro);
+  color: var(--blanco);
+}
+
+/* Nivelamos problemas de tipografías y colocación de formularios */
+form,
+input,
+textarea,
+select,
+button,
+label {
+  font-family: inherit;
+  font-size: inherit;
+  hyphens: auto;
+  background-color: transparent;
+  color: inherit;
+  display: block;
+  /* opcional */
+  appearance: none;
+}
+
+/* Reseteamos las tablas */
+table,
+tr,
+td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Evitamos problemas con los SVG */
+svg {
+  width: 100%;
+  display: block;
+  fill: currentColor;
+}
+
+/* (Probándolo, no usar en producción) En el caso de añadir una  */
+/* p svg{
+  display: inline;
+  width: initial;
+} */
+/* Configuramos la tipografía para toda la web */
+body {
+  min-height: 100vh;
+  font-size: 100%;
+  font-family: var(--tipo-principal);
+  /* opcional */
+  hyphens: auto;
+  /* opcional */
+  font-smooth: always;
+  /* opcional */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.Wrapper {
+  width: 100%;
+  max-width: 1440px;
+  margin: auto;
+}
+.Wrapper .Header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.Wrapper .Header-h1 {
+  width: 5rem;
+  height: 5rem;
+  margin: 2rem 0;
+}
+.Wrapper .Header-ul {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.Wrapper .Main {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: center;
+  width: 100%;
+}
+.Wrapper .Main-left {
+  width: 70%;
+  height: 100%;
+}
+.Wrapper .Main-titular {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: center;
+  margin: 2rem 0 0 0;
+}
+.Wrapper .Main-h2 {
+  width: 45%;
+  font-size: 4.5rem;
+  line-height: 1;
+  font-weight: 800;
+  margin: 0 2rem 0 0;
+}
+.Wrapper .Main-paragraph {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 50%;
+}
+.Wrapper .Main-p-left {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: var(--gris-texto);
+  font-weight: 500;
+}
+.Wrapper .Main-btn {
+  background-color: var(--rojo);
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  color: var(--blanco);
+  letter-spacing: 0.3rem;
+}
+.Wrapper .Main-btn:hover {
+  background-color: var(--azul);
+}
+.Wrapper .Main-rigth {
+  background-color: var(--azul);
+  color: var(--blanco);
+  width: 27%;
+  padding: 1rem 2rem;
+}
+.Wrapper .Main-h3 {
+  margin: 0 0 1.5rem 0;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--naranja);
+}
+.Wrapper .Main-new {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 1rem 0 0 0;
+}
+.Wrapper .Main-border {
+  border: 0.5px solid var(--gris);
+  margin: 0 0 2rem 0;
+}
+.Wrapper .Main-p {
+  padding: 1rem 0 1.5rem 0;
+  color: var(--gris);
+}
+.Wrapper .Cards {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: center;
+  margin: 5rem 0 0 0;
+}
+.Wrapper .Cards-card {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 25rem;
+}
+.Wrapper .Cards-img {
+  width: 8rem;
+  height: 10rem;
+}
+.Wrapper .Cards-text {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 0 0 0 1rem;
+  height: 100%;
+}
+.Wrapper .Cards-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gris);
+}
+.Wrapper .Cards-h5 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--azul);
+}
+.Wrapper .Cards-p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--gris-texto);
+}
+
+/*# sourceMappingURL=style.css.map */
